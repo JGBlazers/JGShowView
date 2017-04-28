@@ -11,6 +11,25 @@
 #### b、获取方式有二：一为通过调用本类的属性selectIndex和title获取；二是通过调用代理方法获取
 #### c、如果基础属性无法满足条件需要，可以自主扩展
 
+## <a id="DemoOneVC.swift"></a>DemoOneVC.swift
+```objc
+
+let popView = JGPopupView.sharePopupView()
+popView.delegate = self
+popView.toolBarAlertTitle = "请选择贷款类型"
+popView.subViewTitleArray = ["业主贷", "车主贷", "寿险贷", "优房贷", "宅E贷"]
+popView.show()
+
+/**
+将勾选后的结果回调回来
+
+- parameter index: 选择的条件索引
+- parameter msg:   选择的条件标题等，取值是，可根据需要进行转换
+*/
+func clickMormalCommitBtn(index: Int, msg: Any?);
+
+@end
+```
 ### 1.2、自定义工具类
 #### 如果默认的工具条效果无法达到自己需要，可以通过自定义的方式进行拓展，可参考类DemoTwoVC
 #### a、在容器中，有一个提供外部修改的属性(var toolBar : UIView?)，使用这个属性来承接自定义的工具条
